@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    x:Class="NewsAppTask.Views.MainMenuPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    Title="menu"
+    IconImageSource="menuicon.png"
+    NavigationPage.HasNavigationBar="false">
+    <Grid RowSpacing="0" VerticalOptions="FillAndExpand">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <StackLayout
+            Grid.Row="0"
+            Margin="30,50,30,10"
+            Orientation="Horizontal">
+            <pancake:PancakeView
+                CornerRadius="30"
+                HeightRequest="60"
+                HorizontalOptions="Start"
+                WidthRequest="60">
+                <Image Source="profile" />
+
+            </pancake:PancakeView>
+            <StackLayout Spacing="0" VerticalOptions="Center">
+                <Label
+                    FontFamily="MulishRegular"
+                    FontSize="13"
+                    Text="Welcome"
+                    VerticalTextAlignment="Center" />
+                <Label
+                    FontFamily="MulishRegular"
+                    FontSize="15"
+                    Text="Tony Roshdy"
+                    TextColor="Black"
+                    VerticalTextAlignment="Center" />
+            </StackLayout>
+
+        </StackLayout>
+        <!--  MENU ENTRIES  -->
+        <ListView
+            x:Name="sampleListView"
+            Grid.Row="1"
+            Margin="30,20,30,10"
+            HasUnevenRows="False"
+            ItemsSource="{Binding MainMenuEntries}"
+            RowHeight="60"
+            SelectedItem="{Binding MainMenuSelectedItem, Mode=TwoWay}"
+            SeparatorVisibility="None"
+            VerticalOptions="FillAndExpand">
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+
+                        <Grid Padding="10,0" HeightRequest="60">
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <!--  ICON  -->
+                            <Image
+                                Grid.Column="0"
+                                HeightRequest="30"
+                                HorizontalOptions="Start"
+                                Source="{Binding Icon}" />
+
+                            <!--  LABEL  -->
+                            <Label
+                                Grid.Column="1"
+                                Margin="10,0"
+                                Text="{Binding Name}"
+                                VerticalTextAlignment="Center" />
+
+                        </Grid>
+
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+    </Grid>
+</ContentPage>

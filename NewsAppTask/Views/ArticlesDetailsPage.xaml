@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    x:Class="NewsAppTask.Views.ArticlesDetailsPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    BackgroundColor="#E7E7E7"
+    NavigationPage.HasBackButton="True">
+    <NavigationPage.TitleView>
+        <Grid>
+            <Label
+                FontAttributes="Bold"
+                FontFamily="MulishRegular"
+                FontSize="20"
+                HorizontalOptions="Start"
+                Text="Articles"
+                TextColor="White"
+                VerticalOptions="Center"
+                VerticalTextAlignment="Center" />
+            <Image
+                Margin="0,0,20,0"
+                HeightRequest="20"
+                HorizontalOptions="End"
+                Source="search"
+                VerticalOptions="Center"
+                WidthRequest="20" />
+        </Grid>
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+        <Grid RowDefinitions="auto,auto">
+            <pancake:PancakeView
+                Margin="20"
+                BackgroundColor="White"
+                Border="{pancake:BorderMarkup Color=LightGray,
+                                              Thickness='1'}"
+                CornerRadius="10"
+                HeightRequest="460"
+                WidthRequest="300">
+                <Grid RowDefinitions="auto,auto">
+                    <Grid>
+                        <Image
+                            Aspect="AspectFill"
+                            HeightRequest="190"
+                            Source="{Binding GetArticle.UrlToImage}"
+                            WidthRequest="300" />
+                        <Label
+                            Margin="0,0,10,27"
+                            FontAttributes="Bold"
+                            FontFamily="MulishRegular"
+                            FontSize="15"
+                            HorizontalOptions="End"
+                            Text="{Binding GetArticle.PublishedAt, StringFormat='{0:MMM dd, yyyy}'}"
+                            TextColor="White"
+                            VerticalOptions="End"
+                            VerticalTextAlignment="Center" />
+                    </Grid>
+                    <StackLayout Grid.Row="1" Spacing="0">
+                        <Label
+                            Margin="10,15,10,0"
+                            FontFamily="MulishRegular"
+                            FontSize="19"
+                            Text="{Binding GetArticle.Title}"
+                            TextColor="Black"
+                            VerticalTextAlignment="Center" />
+
+                        <Label
+                            Margin="10,10,10,0"
+                            FontFamily="MulishRegular"
+                            FontSize="14"
+                            VerticalTextAlignment="Center">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="By " />
+                                    <Span Text="{Binding GetArticle.Author}" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+
+                        <Label
+                            Margin="10,16,10,0"
+                            FontFamily="MulishRegular"
+                            FontSize="14"
+                            HorizontalOptions="Start"
+                            Text="{Binding GetArticle.Description}" />
+
+
+                    </StackLayout>
+                </Grid>
+            </pancake:PancakeView>
+
+            <Button
+                Grid.Row="1"
+                Margin="20"
+                BackgroundColor="Black"
+                Command="{Binding OpenWebSiteCommand}"
+                Text="Open Website"
+                TextColor="White" />
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

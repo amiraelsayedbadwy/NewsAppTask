@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    x:Class="NewsAppTask.Views.LiveChatPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    BackgroundColor="#E7E7E7">
+    <NavigationPage.TitleView>
+        <Grid>
+            <Label
+                FontAttributes="Bold"
+                FontFamily="MulishRegular"
+                FontSize="20"
+                HorizontalOptions="Start"
+                Text="Live Chat"
+                TextColor="White"
+                VerticalOptions="Center"
+                VerticalTextAlignment="Center" />
+            <Image
+                Margin="0,0,20,0"
+                HeightRequest="20"
+                HorizontalOptions="End"
+                Source="search"
+                VerticalOptions="Center"
+                WidthRequest="20" />
+        </Grid>
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+        <Grid>
+            <Label
+                FontAttributes="Bold"
+                FontFamily="MulishRegular"
+                FontSize="22"
+                HorizontalOptions="Center"
+                HorizontalTextAlignment="Center"
+                Text="Sorry, Service is not Available"
+                VerticalOptions="Center"
+                VerticalTextAlignment="Center" />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

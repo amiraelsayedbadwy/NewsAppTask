@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<MasterDetailPage
+    x:Class="NewsAppTask.Views.HomePage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    IsPresented="False"
+    MasterBehavior="Popover" />
+
